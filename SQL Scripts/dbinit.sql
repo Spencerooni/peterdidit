@@ -20,7 +20,7 @@ INSERT INTO employee (first_name, last_name, address_1, city, postcode, national
 INSERT INTO employee (first_name, last_name, address_1, city, postcode, national_insurance,bank_account,salary) VALUES ("Madyson","Henry","9978 sherwin","Peoria","61534","UQWGEROUM","4094693952282235",453129);
 INSERT INTO employee (first_name, last_name, address_1, city, postcode, national_insurance,bank_account,salary) VALUES ("Neil","Emerson","1389 weed","Aurora","80028","NUXAIV7JE","6709257335231392",476533);
 INSERT INTO employee (first_name, last_name, address_1, city, postcode, national_insurance,bank_account,salary) VALUES ("Frances","Read","5486 121st","Clarksville","37053","LURVNB8XO","36576993935482",50013);
-INSERT INTO employee (first_name, last_name, address_1, city, postcode, national_insurance,bank_account,salary)  VALUES ("Kole","Sampson","7455 lawler","Allentown","18158","2JTWOQ7CA","4917897156790480",610908);
+INSERT INTO employee (first_name, last_name, address_1, city, postcode, national_insurance,bank_account,salary) VALUES ("Kole","Sampson","7455 lawler","Allentown","18158","2JTWOQ7CA","4917897156790480",610908);
 INSERT INTO employee (first_name, last_name, address_1, city, postcode, national_insurance,bank_account,salary) VALUES ("Jamison","Burris","4999 burling","Pittsburgh","15539","G81KCEPSX","6011017087171805",799734);
 INSERT INTO employee (first_name, last_name, address_1, city, postcode, national_insurance,bank_account,salary) VALUES ("Lilyanna","Downs","8996 122nd","Charleston","29404","L7QVGBEHS","347976761489957",319842);
 INSERT INTO employee (first_name, last_name, address_1, city, postcode, national_insurance,bank_account,salary) VALUES ("Chase","Ford","4661 superior","Tulsa","74342","QUQZZ7XAL","6473579726959446",100409);
@@ -232,5 +232,10 @@ right join bu on emp_bu.bu_id = bu.bu_id
 where bu.name = "Evolve"
 order by bu.name) ;
 
-
-
+CREATE VIEW FinalSalary AS(
+SELECT 
+CONCAT(first_name,' ', last_name) as 'Employee Name',
+CONCAT('£',
+CAST((IFNULL((sales.commission_rate * sales.total_sales),0) + salary) as DECIMAL(11,2))) as 'Final Salary'
+from employee
+left outer JOIN sales on  employee.employee_id = sales.sales_id);
