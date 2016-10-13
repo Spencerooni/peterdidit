@@ -6,33 +6,43 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.collections.FXCollections?>
 <BorderPane fx:controller="com.project.thursday.Controller"
             xmlns:fx="http://javafx.com/fxml">
     <center>
-        <GridPane alignment="CENTER" hgap="10" vgap="10">
-            <Label text="First Name" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-            <Label text="Last Name" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-            <Label text="Address 1" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-            <Label text="Address 2" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-            <Label text="City" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-            <Label text="Postcode" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
-            <TextField GridPane.columnIndex="3" GridPane.rowIndex="4"/>
-            <Label text="National Insurance" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="5"/>
-            <Label text="Bank Account" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6"/>
-            <Label text="Starting Salary" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="7"/>
-        </GridPane>
+        <TableView fx:id="tableView">
+            <columns>
+                <TableColumn text="First Name">
+                </TableColumn>
+                <TableColumn text="Last Name">
+                </TableColumn>
+                <TableColumn text="Address 1">
+                </TableColumn>
+                <TableColumn text="Address 2">
+                </TableColumn>
+                <TableColumn text="City">
+                </TableColumn>
+                <TableColumn text="Postcode">
+                </TableColumn>
+                <TableColumn text="National Insurance">
+                </TableColumn>
+                <TableColumn text="Bank Account">
+                </TableColumn>
+                <TableColumn text="Starting">
+                </TableColumn>
+
+            </columns>
+            <items>
+                <FXCollections fx:factory="observableArrayList" fx:id="employeeList">
+                </FXCollections>
+            </items>
+        </TableView>
     </center>
     <bottom>
         <AnchorPane>
-            <Button fx:id="addButton" />
+            <Button fx:id="exitButton" text="Cancel" AnchorPane.bottomAnchor="25" AnchorPane.leftAnchor="25" />
         </AnchorPane>
     </bottom>
 
