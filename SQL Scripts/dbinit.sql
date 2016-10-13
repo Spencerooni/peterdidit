@@ -209,5 +209,14 @@ insert into emp_bu values (96,1);
 insert into emp_bu values (97,1);		
 insert into emp_bu values (98,1);		
 insert into emp_bu values (99,2);		
-insert into emp_bu values (100,3);		
+insert into emp_bu values (100,3);
+
+CREATE VIEW EmployeesInBu AS (
+SELECT CONCAT(first_name, ' ', last_name) as 'Employee Name', bu.name as 'BU Name' FROM employee
+left join emp_bu on employee.employee_id = emp_bu.emp_id
+right join bu on emp_bu.bu_id = bu.bu_id
+where bu.name = "Evolve"
+order by bu.name) ;
+
+		
 
