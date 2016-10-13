@@ -8,9 +8,8 @@ public class SalesEmployee extends Employee {
 
     //constructors
     public void SalesEmployee(){
-
     }
-    
+
     public float getCommission_rate() {
         return commission_rate;
     }
@@ -26,4 +25,11 @@ public class SalesEmployee extends Employee {
     public void setTotal_sales(double total_sales) {
         this.total_sales = total_sales;
     }
+
+    @Override
+    public double calcGrossPay(){
+        return super.calcGrossPay() + (getCommission_rate()*getTotal_sales());
+
+    }
+
 }

@@ -15,6 +15,10 @@ public class Employee {
     private String bank_account;
     private double salary;
 
+    public Employee(){
+
+    }
+
     public Employee(int employee_id) {
         this.employee_id = employee_id;
     }
@@ -140,5 +144,12 @@ public class Employee {
                 ", bank_account='" + bank_account + '\'' +
                 ", salary=" + salary +
                 '}';
+    }
+
+    public double calcGrossPay(){
+
+        double grossPay = this.getSalary() * 0.75;
+        return grossPay;
+
     }
 }
