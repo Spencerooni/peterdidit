@@ -8,36 +8,32 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
-<?import javafx.collections.FXCollections?>
 <BorderPane fx:controller="com.project.thursday.Controller"
             xmlns:fx="http://javafx.com/fxml">
     <center>
         <TableView fx:id="tableView">
             <columns>
-                <TableColumn text="First Name">
+                <TableColumn text="First Name" fx:id="firstNameColumn">
                 </TableColumn>
-                <TableColumn text="Last Name">
+                <TableColumn text="Last Name" fx:id="lastNameColumn">
                 </TableColumn>
-                <TableColumn text="Address 1">
+                <TableColumn text="Address 1" fx:id="address_1Column">
                 </TableColumn>
-                <TableColumn text="Address 2">
+                <TableColumn text="Address 2" fx:id="address_2Column">
                 </TableColumn>
-                <TableColumn text="City">
+                <TableColumn text="City" fx:id="cityColumn">
                 </TableColumn>
-                <TableColumn text="Postcode">
+                <TableColumn text="Postcode" fx:id="postcodeColumn">
                 </TableColumn>
-                <TableColumn text="National Insurance">
+                <TableColumn text="National Insurance" fx:id="niColumn">
                 </TableColumn>
-                <TableColumn text="Bank Account">
+                <TableColumn text="Bank Account" fx:id="bank_accColumn">
                 </TableColumn>
-                <TableColumn text="Starting">
+                <TableColumn text="Starting Salary" fx:id="salaryColumn">
                 </TableColumn>
-
+                <TableColumn text="Business Unit" fx:id="buNameColumn">
+            </TableColumn>
             </columns>
-            <items>
-                <FXCollections fx:factory="observableArrayList" fx:id="employeeList">
-                </FXCollections>
-            </items>
         </TableView>
     </center>
     <bottom>

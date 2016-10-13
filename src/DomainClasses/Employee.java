@@ -14,6 +14,7 @@ public class Employee {
     private String national_insurance;
     private String bank_account;
     private double salary;
+    private String buName;
 
     public Employee(){
 
@@ -48,6 +49,16 @@ public class Employee {
         this.national_insurance = national_insurance;
         this.bank_account = bank_account;
         this.salary = salary;
+    }
+
+
+    public Employee(int employee_id, String first_name, String last_name, String address_1, String address_2,
+                    String city, String postcode, String national_insurance, String bank_account, double salary, String buName) {
+        this(employee_id, first_name, last_name, address_1, address_2, city, postcode);
+        this.national_insurance = national_insurance;
+        this.bank_account = bank_account;
+        this.salary = salary;
+        this.buName = buName;
     }
 
     public int getEmployee_id() {
@@ -129,6 +140,16 @@ public class Employee {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
+
+    public String getBuName() {
+        return buName;
+    }
+
+    public void setBuName(String buName) {
+        this.buName = buName;
+    }
+
 
     @Override
     public String toString() {

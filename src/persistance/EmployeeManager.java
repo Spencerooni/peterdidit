@@ -38,7 +38,9 @@ public class EmployeeManager {
 
     public List<Employee> getAllEmployees() throws ConnectionException {
         Connection conn = getConnection();
-        String expression = String.format("SELECT * FROM employee");
+        String expression = String.format("SELECT employee_id,first_name,last_name, address_1, address_2,city,postcode," +
+                "national_insurance, bank_account, salary,bu.name FROM employee join emp_bu on (employee.employee_id = " +
+                "emp_bu.emp_id) join bu on (bu.bu_id = emp_bu.bu_id);");
         List<Employee> employeeList = new ArrayList();
         try {
             PreparedStatement pStatement = conn.prepareStatement(expression);
@@ -46,7 +48,7 @@ public class EmployeeManager {
             while (rs.next()) {
                 employeeList.add(new Employee(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
                         rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
-                        rs.getDouble(10)));
+                        rs.getDouble(10), rs.getString(11)));
             }
         } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
