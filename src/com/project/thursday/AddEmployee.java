@@ -46,6 +46,14 @@ public class AddEmployee implements Initializable {
         }
     }
 
+    public double castToDouble(String stringIn)throws IllegalArgumentException{
+        try {
+            return Double.valueOf(stringIn);
+        } catch (Exception ex){
+            throw new IllegalArgumentException();
+        }
+    }
+
     public void add(ActionEvent actionEvent) {
         try {
             Employee employee = new Employee();
@@ -57,7 +65,7 @@ public class AddEmployee implements Initializable {
             employee.setPostcode(pcodeText.getText());
             employee.setNational_insurance(niText.getText());
             employee.setBank_account(accoutText.getText());
-            employee.setSalary(Double.valueOf((salaryText).getText()));
+            employee.setSalary(castToDouble(salaryText.getText()));
             new EmployeeManager().addEmployee(employee, buCB.getValue());
         } catch (IllegalArgumentException argEx) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
