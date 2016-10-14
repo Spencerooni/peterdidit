@@ -1,0 +1,37 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.BorderPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ComboBox?>
+<BorderPane fx:controller="com.project.thursday.Controller"
+            xmlns:fx="http://javafx.com/fxml">
+    <top>
+        <Pane minHeight="50"/>
+    </top>
+    <left>
+    </left>
+    <center>
+        <TableView fx:id="tableView">
+            <columns>
+                <TableColumn text="Employee Name" fx:id="nameColumn">
+                </TableColumn>
+                <TableColumn text="Total Pay" fx:id="Employee Pay">
+                </TableColumn>
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <AnchorPane>
+            <Button fx:id="exitButton" text="Cancel" AnchorPane.bottomAnchor="25" AnchorPane.rightAnchor="25" />
+        </AnchorPane>
+    </bottom>
+
+</BorderPane>
