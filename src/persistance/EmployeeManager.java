@@ -7,6 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import DomainClasses.Bu;
 
 /**
  * Created by conort on 13/10/2016.
@@ -34,29 +35,35 @@ public class EmployeeManager {
         return employeeList;
     }
 
-    public long addEmployee(Employee employee) throws ConnectionException, SQLException {
+    public long addEmployee(Employee employee, Bu bu) throws ConnectionException, SQLException {
         Connection conn = ConnectionManager.getConnection();
 
         long key = 0;
         String expression = String.format("INSERT INTO employee (first_name, last_name, address_1, address_2, city, " +
                 "postcode, national_insurance, bank_account, salary) VALUES (?,?,?,?,?,?,?,?,?);");
         PreparedStatement pStatement = conn.prepareStatement(expression, PreparedStatement.RETURN_GENERATED_KEYS);
-        pStatement.setString(0,employee.getFirst_name());
-        pStatement.setString(1,employee.getLast_name());
-        pStatement.setString(2,employee.getAddress_1());
-        pStatement.setString(3,employee.getAddress_2());
-        pStatement.setString(4,employee.getCity());
-        pStatement.setString(5,employee.getPostcode());
-        pStatement.setString(6,employee.getNational_insurance());
-        pStatement.setString(7,employee.getBank_account());
-        pStatement.setDouble(8,employee.getSalary());
-        pStatement.executeQuery();
+        pStatement.setString(1,employee.getFirst_name());
+        pStatement.setString(2,employee.getLast_name());
+        pStatement.setString(3,employee.getAddress_1());
+        pStatement.setString(4,employee.getAddress_2());
+        pStatement.setString(5,employee.getCity());
+        pStatement.setString(6,employee.getPostcode());
+        pStatement.setString(7,employee.getNational_insurance());
+        pStatement.setString(8,employee.getBank_account());
+        pStatement.setDouble(9,employee.getSalary());
+        pStatement.executeUpdate();
         ResultSet rs = pStatement.getGeneratedKeys();
 
         if (rs != null && rs.next()) {
             key = rs.getLong(1);
         }
+
+        EmployeeBUManager employeeBUManager = new EmployeeBUManager();
+        employeeBUManager.addEmpBU(key, bu.getBu_id());
+
+
         return key;
+
     }
 
 }
