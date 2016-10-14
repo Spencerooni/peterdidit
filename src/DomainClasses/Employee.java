@@ -66,6 +66,7 @@ public class Employee {
     }
 
     public void setEmployee_id(int employee_id) {
+
         this.employee_id = employee_id;
     }
 
@@ -73,24 +74,36 @@ public class Employee {
         return first_name;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirst_name(String first_name) throws IllegalArgumentException {
+        if ((first_name.length() <=0)| !(first_name instanceof String) ) {
+             throw new IllegalArgumentException();
+        }
+        else this.first_name = first_name;
     }
+
+
 
     public String getLast_name() {
         return last_name;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLast_name(String last_name) throws IllegalArgumentException {
+        if ((last_name.length() <=0)| !(last_name instanceof String)  ) {
+            throw new IllegalArgumentException();
+        }
+         else this.last_name = last_name;
     }
 
-    public String getAddress_1() {
+    public String getAddress_1()
+    {
         return address_1;
     }
 
-    public void setAddress_1(String address_1) {
-        this.address_1 = address_1;
+    public void setAddress_1(String address_1) throws IllegalArgumentException{
+        if ((address_1.length() <=0)| !(address_1 instanceof String)  ) {
+            throw new IllegalArgumentException();
+        }
+            this.address_1 = address_1;
     }
 
     public String getAddress_2() {
@@ -105,40 +118,56 @@ public class Employee {
         return city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setCity(String city) throws IllegalArgumentException {
+        if ((city.length() <=0)| !(city instanceof String)  ){
+            throw new IllegalArgumentException();
+        }
+        else this.city = city;
     }
 
     public String getPostcode() {
         return postcode;
     }
 
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
+    public void setPostcode(String postcode) throws IllegalArgumentException {
+        if ((postcode.length() <=0)| !(postcode instanceof String)  ){
+            throw new IllegalArgumentException();
+        }
+        else this.postcode = postcode;
     }
 
     public String getNational_insurance() {
         return national_insurance;
     }
 
-    public void setNational_insurance(String national_insurance) {
-        this.national_insurance = national_insurance;
+    public void setNational_insurance(String national_insurance) throws IllegalArgumentException{
+        if ((national_insurance.length() <=0)| !(national_insurance instanceof String)  ){
+            throw new IllegalArgumentException();
+        }
+        else this.national_insurance = national_insurance;
     }
 
     public String getBank_account() {
         return bank_account;
     }
 
-    public void setBank_account(String bank_account) {
-        this.bank_account = bank_account;
+    public void setBank_account(String bank_account) throws IllegalArgumentException {
+        if ((bank_account.length() <=0)| !(bank_account instanceof String)  ){
+            throw new IllegalArgumentException();
+        }
+            this.bank_account = bank_account;
     }
 
     public double getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
+
+    public void setSalary(double salary) throws IllegalArgumentException {
+        if ((salary<= 0)){
+            throw new IllegalArgumentException();
+        }
+        else this.salary = salary;
     }
 
 
