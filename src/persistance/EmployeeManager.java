@@ -1,6 +1,7 @@
 package persistance;
 
 import DomainClasses.Employee;
+import DomainClasses.SalesEmployee;
 import exceptions.ConnectionException;
 
 import java.sql.*;
@@ -33,6 +34,19 @@ public class EmployeeManager {
             sqlEx.printStackTrace();
         }
         return employeeList;
+    }
+
+    public void addSalesEmployee(SalesEmployee employee, Bu bu) throws  ConnectionException, SQLException {
+
+        long key = addEmployee(employee, bu);
+        Connection conn = ConnectionManager.getConnection();
+        String expression = String.format("INSERT INTO sales (sales_id, commission_rate, total_sales) VALUES (?,?,?);");
+        PreparedStatement pStatement = conn.prepareStatement(expression);
+        pStatement.setLong(1,key);
+        pStatement.setFloat(2,employee.getCommission_rate());
+        pStatement.setDouble(3,employee.getTotal_sales());
+        pStatement.execute();
+
     }
 
     public long addEmployee(Employee employee, Bu bu) throws ConnectionException, SQLException {
