@@ -19,10 +19,11 @@ public class Main extends Application {
         Parent root = loader.load();
 
         // scene which contains the FXML parsed components
-        Scene scene = new Scene(root, 1000, 1000);
+        Scene scene = new Scene(root,1000, 1000);
         scene.getStylesheets().add("application.css");
         primaryStage.setTitle("Employee Management System");
         primaryStage.setScene(scene);
+        primaryStage.setFullScreen(true);
         primaryStage.show();
     }
 
