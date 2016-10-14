@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.RadioButton?>
 <BorderPane fx:controller="com.project.thursday.AddEmployee"
             xmlns:fx="http://javafx.com/fxml">
     <center>
@@ -31,12 +32,21 @@
             <TextField fx:id="salaryText" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
             <Label text="Business Unit" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
             <ComboBox fx:id="buCB" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+            <Label text="Employee" GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+            <RadioButton fx:id="empRB" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+            <Label text="Sales Employee" GridPane.columnIndex="0" GridPane.rowIndex="11"/>
+            <RadioButton fx:id="salesEmpRB" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
+            <Label text="Commision Rate" GridPane.columnIndex="0" GridPane.rowIndex="12"/>
+            <TextField fx:id="commText" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
+            <Label text="Commision Rate" GridPane.columnIndex="0" GridPane.rowIndex="12"/>
+            <TextField fx:id="totSalesText" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
+
         </GridPane>
     </center>
     <bottom>
         <AnchorPane>
             <Button fx:id="addButton" text="Add" AnchorPane.bottomAnchor="25" AnchorPane.rightAnchor="25" onAction="#add"/>
-            <Button fx:id="cancelButton" text="Cancel" AnchorPane.bottomAnchor="25" AnchorPane.leftAnchor="25" />
+            <Button fx:id="cancelButton" text="Cancel" AnchorPane.bottomAnchor="25" AnchorPane.leftAnchor="25" onAction="#cancel" />
         </AnchorPane>
     </bottom>
 

@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import persistance.DepartmentManager;
 import persistance.EmployeeManager;
 
@@ -59,6 +60,8 @@ public class AddEmployee implements Initializable {
             employee.setBank_account(accoutText.getText());
             employee.setSalary(Double.valueOf((salaryText).getText()));
             new EmployeeManager().addEmployee(employee, buCB.getValue());
+            Stage stage = (Stage) addButton.getScene().getWindow();
+            stage.close();
         } catch (IllegalArgumentException argEx) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Employee Details Error");
@@ -78,4 +81,8 @@ public class AddEmployee implements Initializable {
     }
 
 
+    public void cancel(ActionEvent actionEvent) {
+        Stage stage = (Stage) addButton.getScene().getWindow();
+        stage.close();
+    }
 }
