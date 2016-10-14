@@ -13,11 +13,6 @@
 <?import javafx.scene.control.ComboBox?>
 <BorderPane fx:controller="com.project.thursday.PayReport"
             xmlns:fx="http://javafx.com/fxml">
-    <padding>
-        <Insets bottom="10.0" left="10.0" right ="10.0" top="10.0"/>
-    </padding>
-    <left>
-    </left>
     <center>
         <TableView fx:id="tableView">
             <columns>
@@ -30,7 +25,10 @@
     </center>
     <bottom>
         <AnchorPane>
-            <Button fx:id="exitButton" text="Cancel" AnchorPane.bottomAnchor="25" AnchorPane.rightAnchor="25" onAction="#cancel"/>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right ="10.0" top="10.0"/>
+            </padding>
+            <Button fx:id="exitButton" text="Cancel" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" onAction="#cancel" prefWidth="100"/>
         </AnchorPane>
     </bottom>
 

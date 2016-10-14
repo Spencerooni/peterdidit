@@ -46,8 +46,8 @@
     </center>
     <bottom>
         <AnchorPane>
-            <Button fx:id="addButton" text="Add" AnchorPane.bottomAnchor="25" AnchorPane.rightAnchor="25" onAction="#add"/>
-            <Button fx:id="cancelButton" text="Cancel" AnchorPane.bottomAnchor="25" AnchorPane.leftAnchor="25" onAction="#cancel" />
+            <Button fx:id="addButton" text="Add" AnchorPane.bottomAnchor="10" AnchorPane.rightAnchor="10" onAction="#add" prefWidth="100"/>
+            <Button fx:id="cancelButton" text="Cancel" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" onAction="#cancel" prefWidth="100"/>
         </AnchorPane>
     </bottom>
 
