@@ -76,7 +76,7 @@ public class Employee {
 
     public void setFirst_name(String first_name) throws IllegalArgumentException {
         if ((first_name.length() <= 0) | !(first_name instanceof String)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid forename");
         } else this.first_name = first_name;
     }
 
@@ -87,7 +87,7 @@ public class Employee {
 
     public void setLast_name(String last_name) throws IllegalArgumentException {
         if ((last_name.length() <= 0) | !(last_name instanceof String)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid surname");
         } else this.last_name = last_name;
     }
 
@@ -97,7 +97,7 @@ public class Employee {
 
     public void setAddress_1(String address_1) throws IllegalArgumentException {
         if ((address_1.length() <= 0) | !(address_1 instanceof String)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid address 1");
         }
         this.address_1 = address_1;
     }
@@ -116,7 +116,7 @@ public class Employee {
 
     public void setCity(String city) throws IllegalArgumentException {
         if ((city.length() <= 0) | !(city instanceof String)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid city");
         } else this.city = city;
     }
 
@@ -126,7 +126,7 @@ public class Employee {
 
     public void setPostcode(String postcode) throws IllegalArgumentException {
         if ((postcode.length() <= 0) | !(postcode instanceof String)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid Postcode");
         } else this.postcode = postcode;
     }
 
@@ -136,7 +136,7 @@ public class Employee {
 
     public void setNational_insurance(String national_insurance) throws IllegalArgumentException {
         if ((national_insurance.length() <= 0) | !(national_insurance instanceof String)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid National Insurance");
         } else this.national_insurance = national_insurance;
     }
 
@@ -146,7 +146,7 @@ public class Employee {
 
     public void setBank_account(String bank_account) throws IllegalArgumentException {
         if ((bank_account.length() <= 0) | !(bank_account instanceof String)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid bank account");
         }
         this.bank_account = bank_account;
     }
@@ -158,8 +158,9 @@ public class Employee {
 
     public void setSalary(double salary) throws IllegalArgumentException {
         if ((salary <= 0)) {
-            throw new IllegalArgumentException();
-        } else this.salary = salary;
+            throw new IllegalArgumentException("Invalid salary");
+        } else
+            this.salary = salary;
     }
 
 
