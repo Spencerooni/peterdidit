@@ -1,6 +1,7 @@
 package persistance;
 
 import DomainClasses.Employee;
+import DomainClasses.EmployeePay;
 import DomainClasses.SalesEmployee;
 import exceptions.ConnectionException;
 
@@ -9,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import DomainClasses.Bu;
+
+import javax.xml.transform.Result;
 
 /**
  * Created by conort on 13/10/2016.
@@ -34,6 +37,25 @@ public class EmployeeManager {
             sqlEx.printStackTrace();
         }
         return employeeList;
+    }
+
+    public List<EmployeePay> getFinalSalary() throws ConnectionException, SQLException {
+
+        Connection conn = ConnectionManager.getConnection();
+        String expression = String.format("SELECT CONCAT(first_name,' ', last_name) as 'Employee Name', CONCAT('£',CAST((IFNULL((sales.commission_rate * sales.total_sales),0) + salary) as DECIMAL(11,2))) as 'Final Salary'from employeeleft outer JOIN sales on  employee.employee_id = sales.sales_id;");
+        List<EmployeePay> salaryList = new ArrayList();
+        try {
+            PreparedStatement pStatement = conn.prepareStatement(expression);
+            ResultSet rs = pStatement.executeQuery();
+            while (rs.next()) {
+                salaryList.add(new EmployeePay(rs.getString(1), rs.getString(2)));
+            }
+
+        } catch (SQLException sqlEx){
+            sqlEx.printStackTrace();
+        }
+        return salaryList;
+
     }
 
     public void addSalesEmployee(SalesEmployee employee, Bu bu) throws  ConnectionException, SQLException {

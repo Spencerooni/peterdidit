@@ -5,11 +5,11 @@ public class EmployeePay {
     private String employeeName;
     private String finalSalary;
 
-    public void EmployeePay(){
+    public EmployeePay(){
 
     }
 
-    public void EmployeePay(String newEmployeeName, String newFinalSalary){
+    public EmployeePay(String newEmployeeName, String newFinalSalary){
 
         this.employeeName = newEmployeeName;
         this.finalSalary = newFinalSalary;
