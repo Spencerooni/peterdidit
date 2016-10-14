@@ -106,8 +106,10 @@ public class Controller implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("add_employee.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
+        stage.setFullScreen(false);
+        stage.setMaximized(false);
         stage.setTitle("Employee Management System");
-        stage.setScene(new Scene(root, 500, 500));
+        stage.setScene(new Scene(root, 500, 600));
         stage.showAndWait();
         updateTable();
     }
@@ -136,7 +138,7 @@ public class Controller implements Initializable {
                 Parent root = loader.load();
                 Stage stage = new Stage();
                 stage.setTitle("Employee Management System");
-                stage.setScene(new Scene(root, 500, 500));
+                stage.setScene(new Scene(root, 500, 700));
                 stage.showAndWait();
             } catch (Exception ex){
                 ex.printStackTrace();

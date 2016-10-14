@@ -23,7 +23,7 @@ public class Main extends Application {
         scene.getStylesheets().add("application.css");
         primaryStage.setTitle("Employee Management System");
         primaryStage.setScene(scene);
-        primaryStage.setFullScreen(true);
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 
