@@ -49,20 +49,31 @@ public class AddEmployee implements Initializable {
     public void add(ActionEvent actionEvent) {
         try {
             Employee employee = new Employee();
-            //TODO add employee insert detail
-            new EmployeeManager().addEmployee(employee);
+            employee.setFirst_name(fNameText.getText());
+            employee.setLast_name(lNameText.getText());
+            employee.setAddress_1(add1Text.getText());
+            employee.setAddress_2(add2Text.getText());
+            employee.setCity(cityText.getText());
+            employee.setPostcode(pcodeText.getText());
+            employee.setNational_insurance(niText.getText());
+            employee.setBank_account(accoutText.getText());
+            employee.setSalary(Double.valueOf((salaryText).getText()));
+            new EmployeeManager().addEmployee(employee, buCB.getValue());
         } catch (IllegalArgumentException argEx) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Employee Details Error");
             alert.setContentText(argEx.getMessage());
+            argEx.printStackTrace();
         } catch (ConnectionException ex){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Connection Error");
             alert.setContentText(ex.getMessage());
+            ex.printStackTrace();
         } catch (SQLException sql){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("SQL Error");
             alert.setContentText(sql.getMessage());
+            sql.printStackTrace();
         }
     }
 
