@@ -14,6 +14,7 @@ public class Employee {
     private String national_insurance;
     private String bank_account;
     private double salary;
+    private String stringSal;
     private String buName;
 
     public Employee() {
@@ -48,7 +49,7 @@ public class Employee {
         this(employee_id, first_name, last_name, address_1, address_2, city, postcode);
         this.national_insurance = national_insurance;
         this.bank_account = bank_account;
-        this.salary = salary;
+        setSalary(salary);
     }
 
 
@@ -57,7 +58,7 @@ public class Employee {
         this(employee_id, first_name, last_name, address_1, address_2, city, postcode);
         this.national_insurance = national_insurance;
         this.bank_account = bank_account;
-        this.salary = salary;
+        setSalary(salary);
         this.buName = buName;
     }
 
@@ -155,12 +156,17 @@ public class Employee {
         return salary;
     }
 
-
     public void setSalary(double salary) throws IllegalArgumentException {
         if ((salary <= 0)) {
             throw new IllegalArgumentException("Invalid salary");
-        } else
+        } else {
             this.salary = salary;
+            this.stringSal = String.format("£%.2f", this.salary);
+        }
+    }
+
+    public String getStringSal(){
+        return this.stringSal;
     }
 
     public void setSalary(String salary) {

@@ -2,9 +2,6 @@
 <?import javafx.scene.layout.BorderPane?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
@@ -13,20 +10,27 @@
 <?import javafx.scene.control.ComboBox?>
 <BorderPane fx:controller="com.project.thursday.Controller"
             xmlns:fx="http://javafx.com/fxml">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right ="10.0" top="10.0"/>
+    </padding>
     <top>
         <Pane minHeight="50"/>
     </top>
     <left>
         <AnchorPane>
             <VBox spacing="10">
-                <Button fx:id="addEmployeeButton" onAction="#addEmployee" text="Add Employee"/>
-                <ComboBox fx:id="departmentCombo"/>
-                <Button fx:id="payReportButton" text="Pay Report"/>
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right ="10.0" top="10.0"/>
+                </padding>
+                <Button fx:id="addEmployeeButton" onAction="#addEmployee" text="Add" prefWidth="100"/>
+                <ComboBox fx:id="departmentCombo" prefWidth="100"/>
+                <Button fx:id="payReportButton" text="Pay Report" prefWidth="100"/>
             </VBox>
         </AnchorPane>
     </left>
     <center>
         <TableView fx:id="tableView">
+
             <columns>
                 <TableColumn text="First Name" fx:id="firstNameColumn">
                 </TableColumn>
@@ -53,6 +57,9 @@
     </center>
     <bottom>
         <AnchorPane>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right ="10.0" top="10.0"/>
+            </padding>
             <Button fx:id="exitButton" text="Cancel" AnchorPane.bottomAnchor="25" AnchorPane.rightAnchor="25" onAction="#close" />
         </AnchorPane>
     </bottom>

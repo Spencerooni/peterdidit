@@ -2,6 +2,7 @@ package com.project.thursday;
 
 import DomainClasses.Employee;
 import exceptions.ConnectionException;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -36,7 +37,7 @@ public class Controller implements Initializable {
     public TableColumn<Employee, String> postcodeColumn;
     public TableColumn<Employee, String> niColumn;
     public TableColumn<Employee, String> bank_accColumn;
-    public TableColumn<Employee, Double> salaryColumn;
+    public TableColumn<Employee, String> salaryColumn;
     public TableColumn<Employee, String> buNameColumn;
     @FXML
     private TableColumn<Employee, String> firstNameColumn;
@@ -59,14 +60,12 @@ public class Controller implements Initializable {
             postcodeColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("postcode"));
             niColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("national_insurance"));
             bank_accColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("bank_account"));
-            salaryColumn.setCellValueFactory(new PropertyValueFactory<Employee, Double>("salary"));
+            salaryColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("stringSal"));
             buNameColumn.setCellValueFactory(new PropertyValueFactory<Employee, String>("buName"));
-
 
             masterData.addAll(new EmployeeManager().getAllEmployees());
 
             filteredData = new FilteredList<>(masterData, p -> true);
-
 
             departmentCombo.valueProperty().addListener((observable, oldValue, newValue) -> {
                 filteredData.setPredicate(employee -> {
