@@ -11,15 +11,18 @@ public class Main extends Application {
     private static String FXML_LOCATION = "main_menu.fxml";
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         setUserAgentStylesheet(STYLESHEET_MODENA);
+
         // parses FXML view
         FXMLLoader loader = new FXMLLoader(getClass().getResource(FXML_LOCATION));
         Parent root = loader.load();
-        // scene which contains the FXML parsed components
 
+        // scene which contains the FXML parsed components
+        Scene scene = new Scene(root, 1000, 1000);
+        scene.getStylesheets().add("application.css");
         primaryStage.setTitle("Employee Management System");
-        primaryStage.setScene(new Scene(root, 1000, 1000));
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 

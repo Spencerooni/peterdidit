@@ -13,31 +13,9 @@ import java.util.Properties;
  */
 public class EmployeeManager {
 
-    private final String userName = "root";
-    private final String password = "password";
-    private final String serverName = "127.0.0.1";
-    private final String portNumber = "3306";
-
-    public EmployeeManager() {
-    }
-
-    public Connection getConnection() throws ConnectionException {
-        Properties connectionProps = new Properties();
-        connectionProps.put("user", this.userName);
-        connectionProps.put("password", this.password);
-        try {
-            return DriverManager.getConnection(
-                    "jdbc:mysql://" +
-                            this.serverName +
-                            ":" + this.portNumber + "/kainos?useSSL=false",
-                    connectionProps);
-        } catch (SQLException sqlEx) {
-            throw new ConnectionException("Unable to connect to the database");
-        }
-    }
 
     public List<Employee> getAllEmployees() throws ConnectionException {
-        Connection conn = getConnection();
+        Connection conn = ConnectionManager.getConnection();
         String expression = String.format("SELECT employee_id,first_name,last_name, address_1, address_2,city,postcode," +
                 "national_insurance, bank_account, salary,bu.name FROM employee join emp_bu on (employee.employee_id = " +
                 "emp_bu.emp_id) join bu on (bu.bu_id = emp_bu.bu_id);");
@@ -57,7 +35,7 @@ public class EmployeeManager {
     }
 
     public long addEmployee(Employee employee) throws ConnectionException, SQLException {
-        Connection conn = getConnection();
+        Connection conn = ConnectionManager.getConnection();
 
         long key = 0;
         String expression = String.format("INSERT INTO employee (first_name, last_name, address_1, address_2, city, " +

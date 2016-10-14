@@ -8,8 +8,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ComboBox?>
 <BorderPane fx:controller="com.project.thursday.Controller"
             xmlns:fx="http://javafx.com/fxml">
+    <top>
+        <Pane minHeight="50"/>
+    </top>
+    <left>
+        <AnchorPane>
+            <VBox spacing="10">
+                <Button fx:id="addEmployeeButton" onAction="#addEmployee" text="+" prefHeight="50" prefWidth="50"/>
+                <ComboBox fx:id="departmentCombo"/>
+            </VBox>
+        </AnchorPane>
+    </left>
     <center>
         <TableView fx:id="tableView">
             <columns>
@@ -38,7 +52,7 @@
     </center>
     <bottom>
         <AnchorPane>
-            <Button fx:id="exitButton" text="Cancel" AnchorPane.bottomAnchor="25" AnchorPane.leftAnchor="25" />
+            <Button fx:id="exitButton" text="Cancel" AnchorPane.bottomAnchor="25" AnchorPane.rightAnchor="25" />
         </AnchorPane>
     </bottom>
 

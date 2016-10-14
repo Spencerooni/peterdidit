@@ -31,4 +31,9 @@ public class Bu {
     public void setDirector_id(int director_id) {
         this.director_id = director_id;
     }
+
+    @Override
+    public String toString() {
+        return this.getName();
+    }
 }
