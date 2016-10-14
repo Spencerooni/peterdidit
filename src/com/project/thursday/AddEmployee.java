@@ -77,33 +77,7 @@ public class AddEmployee implements Initializable {
 
     public void add(ActionEvent actionEvent) {
         try {
-            if(!salesEmpRB.isSelected()){
-            Employee employee = new Employee();
-            employee.setFirst_name(fNameText.getText());
-            employee.setLast_name(lNameText.getText());
-            employee.setAddress_1(add1Text.getText());
-            employee.setAddress_2(add2Text.getText());
-            employee.setCity(cityText.getText());
-            employee.setPostcode(pcodeText.getText());
-            employee.setNational_insurance(niText.getText());
-            employee.setBank_account(accoutText.getText());
-            employee.setSalary(castToDouble(salaryText.getText()));
-            new EmployeeManager().addEmployee(employee, buCB.getValue());
-            } else {
-                SalesEmployee employee = new SalesEmployee();
-                employee.setFirst_name(fNameText.getText());
-                employee.setLast_name(lNameText.getText());
-                employee.setAddress_1(add1Text.getText());
-                employee.setAddress_2(add2Text.getText());
-                employee.setCity(cityText.getText());
-                employee.setPostcode(pcodeText.getText());
-                employee.setNational_insurance(niText.getText());
-                employee.setBank_account(accoutText.getText());
-                employee.setSalary(Double.valueOf((salaryText).getText()));
-                employee.setCommission_rate(Float.valueOf(commText.getText()));
-                employee.setTotal_sales(Double.valueOf(totSalesText.getText()));
-                new EmployeeManager().addSalesEmployee(employee, buCB.getValue());
-            }
+            addEmployee();
             close();
         } catch (IllegalArgumentException argEx) {
             createAlert("Employee Details Error", argEx.getMessage());
@@ -117,7 +91,37 @@ public class AddEmployee implements Initializable {
         }
     }
 
-    public void createAlert(String title, String message) {
+    public void addEmployee() throws ConnectionException, SQLException, IllegalArgumentException{
+        if(!salesEmpRB.isSelected()){
+            Employee employee = new Employee();
+            employee.setFirst_name(fNameText.getText());
+            employee.setLast_name(lNameText.getText());
+            employee.setAddress_1(add1Text.getText());
+            employee.setAddress_2(add2Text.getText());
+            employee.setCity(cityText.getText());
+            employee.setPostcode(pcodeText.getText());
+            employee.setNational_insurance(niText.getText());
+            employee.setBank_account(accoutText.getText());
+            employee.setSalary(castToDouble(salaryText.getText()));
+            new EmployeeManager().addEmployee(employee, buCB.getValue());
+        } else {
+            SalesEmployee employee = new SalesEmployee();
+            employee.setFirst_name(fNameText.getText());
+            employee.setLast_name(lNameText.getText());
+            employee.setAddress_1(add1Text.getText());
+            employee.setAddress_2(add2Text.getText());
+            employee.setCity(cityText.getText());
+            employee.setPostcode(pcodeText.getText());
+            employee.setNational_insurance(niText.getText());
+            employee.setBank_account(accoutText.getText());
+            employee.setSalary(Double.valueOf((salaryText).getText()));
+            employee.setCommission_rate(Float.valueOf(commText.getText()));
+            employee.setTotal_sales(Double.valueOf(totSalesText.getText()));
+            new EmployeeManager().addSalesEmployee(employee, buCB.getValue());
+        }
+    }
+
+    public static void createAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
         alert.setContentText(message);

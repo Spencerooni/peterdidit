@@ -16,7 +16,7 @@ public class Employee {
     private double salary;
     private String buName;
 
-    public Employee(){
+    public Employee() {
 
     }
 
@@ -75,12 +75,10 @@ public class Employee {
     }
 
     public void setFirst_name(String first_name) throws IllegalArgumentException {
-        if ((first_name.length() <=0)| !(first_name instanceof String) ) {
-             throw new IllegalArgumentException();
-        }
-        else this.first_name = first_name;
+        if ((first_name.length() <= 0) | !(first_name instanceof String)) {
+            throw new IllegalArgumentException();
+        } else this.first_name = first_name;
     }
-
 
 
     public String getLast_name() {
@@ -88,22 +86,20 @@ public class Employee {
     }
 
     public void setLast_name(String last_name) throws IllegalArgumentException {
-        if ((last_name.length() <=0)| !(last_name instanceof String)  ) {
+        if ((last_name.length() <= 0) | !(last_name instanceof String)) {
             throw new IllegalArgumentException();
-        }
-         else this.last_name = last_name;
+        } else this.last_name = last_name;
     }
 
-    public String getAddress_1()
-    {
+    public String getAddress_1() {
         return address_1;
     }
 
-    public void setAddress_1(String address_1) throws IllegalArgumentException{
-        if ((address_1.length() <=0)| !(address_1 instanceof String)  ) {
+    public void setAddress_1(String address_1) throws IllegalArgumentException {
+        if ((address_1.length() <= 0) | !(address_1 instanceof String)) {
             throw new IllegalArgumentException();
         }
-            this.address_1 = address_1;
+        this.address_1 = address_1;
     }
 
     public String getAddress_2() {
@@ -119,10 +115,9 @@ public class Employee {
     }
 
     public void setCity(String city) throws IllegalArgumentException {
-        if ((city.length() <=0)| !(city instanceof String)  ){
+        if ((city.length() <= 0) | !(city instanceof String)) {
             throw new IllegalArgumentException();
-        }
-        else this.city = city;
+        } else this.city = city;
     }
 
     public String getPostcode() {
@@ -130,21 +125,19 @@ public class Employee {
     }
 
     public void setPostcode(String postcode) throws IllegalArgumentException {
-        if ((postcode.length() <=0)| !(postcode instanceof String)  ){
+        if ((postcode.length() <= 0) | !(postcode instanceof String)) {
             throw new IllegalArgumentException();
-        }
-        else this.postcode = postcode;
+        } else this.postcode = postcode;
     }
 
     public String getNational_insurance() {
         return national_insurance;
     }
 
-    public void setNational_insurance(String national_insurance) throws IllegalArgumentException{
-        if ((national_insurance.length() <=0)| !(national_insurance instanceof String)  ){
+    public void setNational_insurance(String national_insurance) throws IllegalArgumentException {
+        if ((national_insurance.length() <= 0) | !(national_insurance instanceof String)) {
             throw new IllegalArgumentException();
-        }
-        else this.national_insurance = national_insurance;
+        } else this.national_insurance = national_insurance;
     }
 
     public String getBank_account() {
@@ -152,10 +145,10 @@ public class Employee {
     }
 
     public void setBank_account(String bank_account) throws IllegalArgumentException {
-        if ((bank_account.length() <=0)| !(bank_account instanceof String)  ){
+        if ((bank_account.length() <= 0) | !(bank_account instanceof String)) {
             throw new IllegalArgumentException();
         }
-            this.bank_account = bank_account;
+        this.bank_account = bank_account;
     }
 
     public double getSalary() {
@@ -164,13 +157,10 @@ public class Employee {
 
 
     public void setSalary(double salary) throws IllegalArgumentException {
-        if ((salary<= 0)){
+        if ((salary <= 0)) {
             throw new IllegalArgumentException();
-        }
-        else this.salary = salary;
+        } else this.salary = salary;
     }
-
-
 
 
     public String getBuName() {
@@ -198,10 +188,19 @@ public class Employee {
                 '}';
     }
 
-    public double calcGrossPay(){
+    public double calcGrossPay() {
 
         double grossPay = this.getSalary() * 0.75;
         return grossPay;
 
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Employee) {
+            if (this.getEmployee_id() == ((Employee) obj).getEmployee_id()) {
+                return true;
+            } else return false;
+        } else return false;
     }
 }

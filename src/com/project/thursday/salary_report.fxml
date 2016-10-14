@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.ComboBox?>
-<BorderPane fx:controller="com.project.thursday.Controller"
+<BorderPane fx:controller="com.project.thursday.PayReport"
             xmlns:fx="http://javafx.com/fxml">
     <top>
         <Pane minHeight="50"/>
@@ -23,7 +23,7 @@
             <columns>
                 <TableColumn text="Employee Name" fx:id="nameColumn">
                 </TableColumn>
-                <TableColumn text="Total Pay" fx:id="Employee Pay">
+                <TableColumn text="Total Pay" fx:id="employeePay">
                 </TableColumn>
             </columns>
         </TableView>

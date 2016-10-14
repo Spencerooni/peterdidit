@@ -42,7 +42,7 @@ public class EmployeeManager {
     public List<EmployeePay> getFinalSalary() throws ConnectionException, SQLException {
 
         Connection conn = ConnectionManager.getConnection();
-        String expression = String.format("SELECT CONCAT(first_name,' ', last_name) as 'Employee Name', CONCAT('£',CAST((IFNULL((sales.commission_rate * sales.total_sales),0) + salary) as DECIMAL(11,2))) as 'Final Salary'from employeeleft outer JOIN sales on  employee.employee_id = sales.sales_id;");
+        String expression = String.format("SELECT CONCAT(first_name,' ', last_name) as 'Employee Name', CONCAT('£',CAST((IFNULL((sales.commission_rate * sales.total_sales),0) + salary) as DECIMAL(11,2))) as 'Final Salary'from employee left outer JOIN sales on  employee.employee_id = sales.sales_id;");
         List<EmployeePay> salaryList = new ArrayList();
         try {
             PreparedStatement pStatement = conn.prepareStatement(expression);

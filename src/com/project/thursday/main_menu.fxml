@@ -21,6 +21,7 @@
             <VBox spacing="10">
                 <Button fx:id="addEmployeeButton" onAction="#addEmployee" text="+" prefHeight="50" prefWidth="50"/>
                 <ComboBox fx:id="departmentCombo"/>
+                <Button fx:id="payReportButton" text="Pay Report"/>
             </VBox>
         </AnchorPane>
     </left>
@@ -52,7 +53,7 @@
     </center>
     <bottom>
         <AnchorPane>
-            <Button fx:id="exitButton" text="Cancel" AnchorPane.bottomAnchor="25" AnchorPane.rightAnchor="25" />
+            <Button fx:id="exitButton" text="Cancel" AnchorPane.bottomAnchor="25" AnchorPane.rightAnchor="25" onAction="#close" />
         </AnchorPane>
     </bottom>
 
