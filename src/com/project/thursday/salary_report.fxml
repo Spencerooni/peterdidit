@@ -30,7 +30,7 @@
     </center>
     <bottom>
         <AnchorPane>
-            <Button fx:id="exitButton" text="Cancel" AnchorPane.bottomAnchor="25" AnchorPane.rightAnchor="25" />
+            <Button fx:id="exitButton" text="Cancel" AnchorPane.bottomAnchor="25" AnchorPane.rightAnchor="25" onAction="#cancel"/>
         </AnchorPane>
     </bottom>
 

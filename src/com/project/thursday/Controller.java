@@ -12,10 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import persistance.DepartmentManager;
@@ -23,12 +20,7 @@ import persistance.EmployeeManager;
 import DomainClasses.Bu;
 
 import java.net.URL;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 public class Controller implements Initializable {
     @FXML
@@ -73,7 +65,7 @@ public class Controller implements Initializable {
 
             masterData.addAll(new EmployeeManager().getAllEmployees());
 
-           filteredData = new FilteredList<>(masterData, p -> true);
+            filteredData = new FilteredList<>(masterData, p -> true);
 
 
             departmentCombo.valueProperty().addListener((observable, oldValue, newValue) -> {
@@ -92,11 +84,13 @@ public class Controller implements Initializable {
             departmentCombo.getItems().setAll(new DepartmentManager().getAllBU(true));
             departmentCombo.getSelectionModel().select(0);
             payReportButton.setOnAction(new EventHandler<ActionEvent>() {
-                @Override public void handle(ActionEvent e) {
+                @Override
+                public void handle(ActionEvent e) {
                     payEmpReport();
                 }
             });
         } catch (ConnectionException ex) {
+            createAlert("Connection Exception", ex.getMessage());
             ex.printStackTrace();
         }
     }
@@ -114,15 +108,15 @@ public class Controller implements Initializable {
         updateTable();
     }
 
-    public void updateTable(){
+    public void updateTable() {
         try {
-            for(Employee emp : new EmployeeManager().getAllEmployees()) {
-                if(!masterData.contains(emp)) {
+            for (Employee emp : new EmployeeManager().getAllEmployees()) {
+                if (!masterData.contains(emp)) {
                     masterData.add(emp);
                 }
             }
-        } catch (Exception ex){
-            AddEmployee.createAlert("Update Error",ex.getMessage());
+        } catch (Exception ex) {
+            createAlert("Update Error", ex.getMessage());
         }
     }
 
@@ -133,17 +127,25 @@ public class Controller implements Initializable {
 
 
     public void payEmpReport() {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("salary_report.fxml"));
-                Parent root = loader.load();
-                Stage stage = new Stage();
-                stage.setTitle("Employee Management System");
-                stage.setScene(new Scene(root, 500, 700));
-                stage.showAndWait();
-            } catch (Exception ex){
-                ex.printStackTrace();
-                AddEmployee.createAlert("Pay Error", ex.getMessage());
-            }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("salary_report.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Employee Management System");
+            stage.setScene(new Scene(root, 500, 700));
+            stage.showAndWait();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            createAlert("Pay Error", ex.getMessage());
         }
+    }
+
+
+    public static void createAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 
 }

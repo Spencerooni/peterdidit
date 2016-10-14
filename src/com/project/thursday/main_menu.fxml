@@ -19,7 +19,7 @@
     <left>
         <AnchorPane>
             <VBox spacing="10">
-                <Button fx:id="addEmployeeButton" onAction="#addEmployee" text="+" prefHeight="50" prefWidth="50"/>
+                <Button fx:id="addEmployeeButton" onAction="#addEmployee" text="Add Employee"/>
                 <ComboBox fx:id="departmentCombo"/>
                 <Button fx:id="payReportButton" text="Pay Report"/>
             </VBox>
