@@ -49,7 +49,6 @@ public class AddEmployee implements Initializable {
     public void add(ActionEvent actionEvent) {
         try {
             Employee employee = new Employee();
-            //TODO add employee insert detail
             new EmployeeManager().addEmployee(employee);
         } catch (IllegalArgumentException argEx) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
