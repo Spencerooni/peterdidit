@@ -163,6 +163,13 @@ public class Employee {
             this.salary = salary;
     }
 
+    public void setSalary(String salary) {
+        try {
+            setSalary(Double.valueOf(salary));
+        } catch (Exception ex) {
+            throw new IllegalArgumentException("Salary must be a positive numeric value.");
+        }
+    }
 
     public String getBuName() {
         return buName;
